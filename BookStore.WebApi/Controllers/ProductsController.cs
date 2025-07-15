@@ -1,5 +1,7 @@
-﻿using BookStore.BusinessLayer.Abstract;
+﻿using AutoMapper;
+using BookStore.BusinessLayer.Abstract;
 using BookStore.EntityLayer.Concrete;
+using BookStore.WebApi.Dtos.ProductDtos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,29 +12,35 @@ namespace BookStore.WebApi.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly IProductService _productService;
+        private readonly IMapper _mapper;
 
-        public ProductsController(IProductService productService)
+        public ProductsController(IProductService productService, IMapper mapper)
         {
             _productService = productService;
+            _mapper = mapper;
         }
 
         [HttpGet]
         public IActionResult ProductList()
         {
-            return Ok(_productService.TGetAll());
+            var values = _productService.TGetAll();
+            var dtos = _mapper.Map<List<ResultProductDto>>(values);
+            return Ok(dtos);
         }
 
         [HttpPost]
-        public IActionResult CreateProduct(Product product)
+        public IActionResult CreateProduct(CreateProductDto createProductDto)
         {
-            _productService.TAdd(product);
+            var dtos = _mapper.Map<Product>(createProductDto);
+            _productService.TAdd(dtos);
             return Ok("Ekleme işlemi başarılı");
         }
 
         [HttpPut]
-        public IActionResult UpdateProduct(Product product)
+        public IActionResult UpdateProduct(UpdateProductDto updateProductDto)
         {
-            _productService.TUpdate(product);
+            var dtos = _mapper.Map<Product>(updateProductDto);
+            _productService.TUpdate(dtos);
             return Ok("Güncelleme işlemi başarılı");
         }
 
@@ -46,13 +54,31 @@ namespace BookStore.WebApi.Controllers
         [HttpGet("GetProduct")]
         public IActionResult GetProduct(int id)
         {
-            return Ok(_productService.TGetById(id));
+            var values = _productService.TGetById(id);
+            var dto = _mapper.Map<GetByIdProductDto>(values);
+            return Ok(dto);
         }
 
         [HttpGet("ProductCount")]
         public IActionResult ProductCount()
         {
             return Ok(_productService.TGetProductCount());
+        }
+
+        [HttpGet("Last4Books")]
+        public IActionResult Last4Books()
+        {
+            var values = _productService.TGetLast4Books();
+            var dtos = _mapper.Map<List<ResultProductDto>>(values);
+            return Ok(dtos);
+        }
+
+        [HttpGet("BookOfTheDay")]
+        public IActionResult BookOfTheDay()
+        {
+            var values = _productService.TGetBookOfTheDay();
+            var dto = _mapper.Map<ResultProductDto>(values);
+            return Ok(dto);
         }
     }
 }

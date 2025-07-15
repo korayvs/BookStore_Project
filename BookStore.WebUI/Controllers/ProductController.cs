@@ -62,7 +62,7 @@ namespace BookStore.WebUI.Controllers
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<GetByIdProductDto>(jsonData);
+                var values = JsonConvert.DeserializeObject<UpdateProductDto>(jsonData);
                 return View(values);
             }
             return View();
@@ -81,5 +81,18 @@ namespace BookStore.WebUI.Controllers
             }
             return View();
         }
+
+        //public void test()
+        //{
+        //    Random rnd = new Random();
+        //    int number = rnd.Next(1,count(+1));
+        //}
     }
 }
+
+/*
+ 1 A  --> 1 -> kayıt sırası (Take - Skip)
+ 2 B  --> 2  
+ 4 C  --> 3
+ 7 D  --> 4
+ */

@@ -16,10 +16,26 @@ namespace BookStore.DataAccessLayer.EntityFramework
         {
         }
 
+        BookStoreContext context = new BookStoreContext();
+
         public int GetProductCount()
         {
-            var context = new BookStoreContext();
             int value = context.Products.Count();
+            return value;
+        }
+
+        public List<Product> GetLast4Books()
+        {
+            var values = context.Products.OrderByDescending(x => x.ProductId).Take(4).ToList();
+            return values;
+        }
+
+        public Product GetBookOfTheDay()
+        {
+            Random rnd = new Random();
+            int countProducts = context.Products.Count();
+            int rndnumber = rnd.Next(1, (countProducts + 1));
+            var value = context.Products.Skip(rndnumber - 1).FirstOrDefault();
             return value;
         }
     }

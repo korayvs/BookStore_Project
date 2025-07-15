@@ -1,6 +1,7 @@
-﻿using BookStore.BusinessLayer.Abstract;
+﻿using AutoMapper;
+using BookStore.BusinessLayer.Abstract;
 using BookStore.EntityLayer.Concrete;
-using Microsoft.AspNetCore.Http;
+using BookStore.WebApi.Dtos.CategoryDtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.WebApi.Controllers
@@ -10,23 +11,27 @@ namespace BookStore.WebApi.Controllers
     public class CategoriesController : ControllerBase
     {
         private readonly ICategoryService _categoryService;
+        private readonly IMapper _mapper;
 
-        public CategoriesController(ICategoryService categoryService)
+        public CategoriesController(ICategoryService categoryService, IMapper mapper)
         {
             _categoryService = categoryService;
+            _mapper = mapper;
         }
 
         [HttpGet]
         public IActionResult CategoryList()
         {
-            var value = _categoryService.TGetAll();
-            return Ok(value);
+            var values = _categoryService.TGetAll();
+            var dtos = _mapper.Map<List<ResultCategoryDto>>(values);
+            return Ok(dtos);
         }
 
         [HttpPost]
-        public IActionResult CreateCategory(Category category)
+        public IActionResult CreateCategory(CreateCategoryDto createCategoryDto)
         {
-            _categoryService.TAdd(category);
+            var value = _mapper.Map<Category>(createCategoryDto);
+            _categoryService.TAdd(value);
             return Ok("Ekleme işlemi başarılı");
         }
 
@@ -38,10 +43,19 @@ namespace BookStore.WebApi.Controllers
         }
 
         [HttpPut]
-        public IActionResult UpdateCategory(Category category)
+        public IActionResult UpdateCategory(UpdateCategoryDto updateCategoryDto)
         {
-            _categoryService.TUpdate(category);
+            var value = _mapper.Map<Category>(updateCategoryDto);
+            _categoryService.TUpdate(value);
             return Ok("Güncelleme işlemi başarılı");
+        }
+
+        [HttpGet("GetCategory")]
+        public IActionResult GetCategory(int id)
+        {
+            var value = _categoryService.TGetById(id);
+            var dto = _mapper.Map<GetByIdCategoryDto>(value);
+            return Ok(dto);
         }
     }
 }

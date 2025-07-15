@@ -17,6 +17,9 @@ namespace BookStore.DataAccessLayer.Context
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Quote> Quotes { get; set; }
+        public DbSet<UserMail> UserMails { get; set; }
     }
 }
 

@@ -1,6 +1,6 @@
-﻿@model BookStore.WebUI.Dtos.ProductDtos.GetByIdProductDto
+﻿@model UpdateProductDto
 @{
-    Layout = null;
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
 }
 
 <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -10,16 +10,28 @@
     <div class="container">
         <br /><br />
         <input type="hidden" asp-for="ProductId" />
+        <label>Ürün Resmi</label>
+        <input type="text" asp-for="ImageUrl" class="form-control" />
+        <br />
         <label>Ürün Adı</label>
         <input type="text" asp-for="ProductName" class="form-control" />
         <br />
-        <label>Ürün Stok Sayısı</label>
+        <label>Ürün Kategorisi</label>
+        <input type="text" asp-for="CategoryId" class="form-control" />
+        <br />
+        <label>Yazarı</label>
+        <input type="text" asp-for="AuthorName" class="form-control" />
+        <br />
+        <label>Açıklaması</label>
+        <input type="text" asp-for="Description" class="form-control" />
+        <br />
+        <label>Stok Sayısı</label>
         <input type="text" asp-for="ProductStock" class="form-control" />
         <br />
-        <label>Ürün Fiyatı</label>
+        <label>Fiyatı</label>
         <input type="text" asp-for="ProductPrice" class="form-control" />
         <br />
-        <button class="btn btn-success">Ürünü Güncelle</button>
+        <button class="btn btn-success">Güncelle</button>
     </div>
 
 </form>

@@ -1,6 +1,9 @@
-﻿@model List<BookStore.WebUI.Dtos.CategoryDtos.ResultCategoryDto>
+﻿@model List<ResultCategoryDto>
 @{
-    Layout = null;
+    ViewData["Title"] = "Kategoriler";
+    ViewData["Title2"] = "Kategori Listesi";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+    int count = 0;
 }
 
 <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -13,17 +16,19 @@
         <tr>
             <th>#</th>
             <th>Kategori Adı</th>
-            <th>Sil</th>
-            <th>Güncelle</th>
+            <th>İşlemler</th>
         </tr>
 
         @foreach (var item in Model)
         {
+            count++;
             <tr>
-                <td>@item.CategoryId</td>
+                <td>@count</td>
                 <td>@item.CategoryName</td>
-                <td><a href="/Category/DeleteCategory/@item.CategoryId" class="btn btn-danger">Sil</a></td>
-                <td><a href="/Category/UpdateCategory/@item.CategoryId" class="btn btn-info">Güncelle</a></td>
+                <td>
+                    <a href="/Category/DeleteCategory/@item.CategoryId" class="btn btn-danger">Sil</a>
+                    <a href="/Category/UpdateCategory/@item.CategoryId" class="btn btn-info">Güncelle</a>
+                </td>
             </tr>
         }
 

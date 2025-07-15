@@ -33,9 +33,19 @@ namespace BookStore.BusinessLayer.Concrete
             return _productDal.GetAll();
         }
 
+        public Product TGetBookOfTheDay()
+        {
+            return _productDal.GetBookOfTheDay();
+        }
+
         public Product TGetById(int id)
         {
             return _productDal.GetById(id);
+        }
+
+        public List<Product> TGetLast4Books()
+        {
+            return _productDal.GetLast4Books();
         }
 
         public int TGetProductCount()
