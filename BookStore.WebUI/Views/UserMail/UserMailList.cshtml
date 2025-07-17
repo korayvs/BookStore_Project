@@ -1,0 +1,68 @@
+﻿@model List<UserMail>
+@{
+    ViewData["Title"] = "UserMailList";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+    int count = 0;
+}
+
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.0/dist/sweetalert2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.0/dist/sweetalert2.min.js"></script>
+
+<div class="container mt-4">
+    <br /><br />
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th style="width:1%">#</th>
+                <th>E-Posta Adresi</th>
+                <th style="width:10%">Abonelik</th>
+                <th style="width:5%">İşlemler</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <td>@count</td>
+                <td>@item.UserEmail</td>
+                <td>
+                    <form method="post" action="/UserMail/SendMail/@item.UserMailId">
+                        <button type="submit" class="btn btn-dark">📩 Maİl Gönder</button>
+                    </form>
+                </td>
+                <td>
+                    <a href="/UserMail/DeleteUserMail/@item.UserMailId" class="btn btn-danger">🗑️</a>
+                    <a href="/UserMail/UpdateUserMail/@item.UserMailId" class="btn btn-info">✏️</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+    <a href="/UserMail/CreateUserMail" class="btn btn-primary">Yenİ Maİl Kaydet</a>
+
+</div>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Başarıyla Gönderildi!',
+            text: '@Html.Raw(TempData["SuccessMessage"])',
+            confirmButtonText: 'Tamam',
+        });
+    </script>
+}
+
+@if (TempData["FailMessage"] != null)
+{
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Hata!',
+            text: '@Html.Raw(TempData["FailMessage"])',
+            confirmButtonText: 'Tamam',
+        });
+    </script>
+}

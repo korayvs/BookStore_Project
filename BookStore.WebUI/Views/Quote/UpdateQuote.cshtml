@@ -1,0 +1,21 @@
+﻿@model UpdateQuoteDto
+@{
+    ViewData["Title"] = "UpdateQuote";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<form method="post">
+
+    <div class="container">
+        <br /><br />
+        <input type="hidden" asp-for="QuoteId" />
+        <label>Alıntı</label>
+        <input type="text" asp-for="Sentence" class="form-control" />
+        <br />
+        <label>Yazar</label>
+        <input type="text" asp-for="Author" class="form-control" />
+        <br />
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+
+</form>

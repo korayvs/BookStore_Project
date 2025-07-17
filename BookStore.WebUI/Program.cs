@@ -1,3 +1,8 @@
+using Microsoft.AspNetCore.Localization;
+using Microsoft.CodeAnalysis.Host;
+using System.Globalization;
+using System.Reflection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

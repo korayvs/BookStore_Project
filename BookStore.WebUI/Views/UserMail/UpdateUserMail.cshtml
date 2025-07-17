@@ -1,0 +1,18 @@
+﻿@model UserMail
+@{
+    ViewData["Title"] = "UpdateUserMail";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<form method="post">
+
+    <div class="container">
+        <br /><br />
+        <input type="hidden" asp-for="UserMailId" />
+        <label>E Posta Adresi</label>
+        <input type="text" asp-for="UserEmail" class="form-control" />
+        <br />
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+
+</form>

@@ -1,0 +1,17 @@
+﻿@model UserMail
+@{
+    ViewData["Title"] = "CreateUserMail";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<form method="post">
+
+    <div class="container">
+        <br /><br />
+        <label>E Posta Adresi</label>
+        <input type="text" asp-for="UserEmail" class="form-control" />
+        <br />
+        <button class="btn btn-success">Ekle</button>
+    </div>
+
+</form>

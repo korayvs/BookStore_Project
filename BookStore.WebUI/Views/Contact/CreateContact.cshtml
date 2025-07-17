@@ -1,0 +1,29 @@
+﻿@model CreateContactDto
+@{
+    ViewData["Title"] = "CreateContact";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<form method="post">
+
+    <div class="container">
+        <br /><br />
+        <label>Hakkımızda</label>
+        <input type="text" asp-for="AboutUs" class="form-control" />
+        <br />
+        <label>E posta</label>
+        <input type="text" asp-for="Email" class="form-control" />
+        <br />
+        <label>Adres</label>
+        <input type="text" asp-for="ContactAddress" class="form-control" />
+        <br />
+        <label>Telefon</label>
+        <input type="text" asp-for="PhoneNumber" class="form-control" />
+        <br />
+        <label>Sosyal Medya</label>
+        <input type="text" asp-for="SocialMedia" class="form-control" />
+        <br />
+        <button class="btn btn-success">Ekle</button>
+    </div>
+
+</form>
