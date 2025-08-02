@@ -18,71 +18,69 @@ namespace BookStore.BusinessLayer.Concrete
             _dashboardDal = dashboardDal;
         }
 
+        public decimal TAverageProductPrice()
+        {
+            return _dashboardDal.AverageProductPrice();
+        }
 
+        public int TCategoryCount()
+        {
+            return _dashboardDal.CategoryCount();
+        }
+
+        public Category TCategoryWithLeastProduct()
+        {
+            return _dashboardDal.CategoryWithLeastProduct();
+        }
+
+        public Category TCategoryWithMostProduct()
+        {
+            return _dashboardDal.CategoryWithMostProduct();
+        }
+
+        public int TEmailCount()
+        {
+            return _dashboardDal.EmailCount();
+        }
 
         public List<Product> TGetAuthors()
         {
             return _dashboardDal.GetAuthors();
         }
 
-        public decimal TGetAvarageProductPrice()
+        public Category TLastCategory()
         {
-            return _dashboardDal.GetAvarageProductPrice();
+            return _dashboardDal.LastCategory();
         }
 
-        public int TGetCategoryCount()
+        public Product TLastProduct()
         {
-            return _dashboardDal.GetCategoryCount();
+            return _dashboardDal.LastProduct();
         }
 
-        public Category TGetCategoryWithLeastProduct()
+        public Quote TLastQuote()
         {
-            return _dashboardDal.GetCategoryWithLeastProduct();
+            return _dashboardDal.LastQuote();
         }
 
-        public Category TGetCategoryWithMostProduct()
+        public Product TLeastProduct()
         {
-            return _dashboardDal.GetCategoryWithMostProduct();
+            return _dashboardDal.LeastProduct();
         }
 
-        public int TGetEmailCount()
+        public Product TMostExpensiveProduct()
         {
-            return _dashboardDal.GetEmailCount();
+            return _dashboardDal.MostExpensiveProduct();
         }
 
-        public Category TGetLastCategory()
+        public int TProductCount()
         {
-            return _dashboardDal.GetLastCategory();
+            return _dashboardDal.ProductCount();
         }
 
-        public Product TGetLastProduct()
+        public int TQuoteCount()
         {
-            return _dashboardDal.GetLastProduct();
-        }
-
-        public Quote TGetLastQuote()
-        {
-            return _dashboardDal.GetLastQuote();
-        }
-
-        public Product TGetLeastStockProduct()
-        {
-            return _dashboardDal.GetLeastStockProduct();
-        }
-
-        public Product TGetMostExpensiveProduct()
-        {
-            return _dashboardDal.GetMostExpensiveProduct();
-        }
-
-        public int TGetProductCount()
-        {
-            return _dashboardDal.GetProductCount();
-        }
-
-        public int TGetQuoteCount()
-        {
-            return _dashboardDal.GetQuoteCount();
+            return _dashboardDal.QuoteCount();
         }
     }
 }

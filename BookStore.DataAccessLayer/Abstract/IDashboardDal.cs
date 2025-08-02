@@ -9,20 +9,18 @@ namespace BookStore.DataAccessLayer.Abstract
 {
     public interface IDashboardDal
     {
-
-
-        int GetCategoryCount();
-        int GetProductCount();
-        int GetQuoteCount();
-        int GetEmailCount();
-        Product GetLastProduct();
-        Category GetLastCategory();
-        Quote GetLastQuote();
-        Category GetCategoryWithMostProduct();
-        Category GetCategoryWithLeastProduct();
-        Product GetMostExpensiveProduct();
-        Product GetLeastStockProduct();
-        decimal GetAvarageProductPrice();
+        int EmailCount();
+        int CategoryCount();
+        int ProductCount();
+        int QuoteCount();       
+        decimal AverageProductPrice();
+        Category LastCategory();
+        Product LastProduct();        
+        Quote LastQuote();
+        Category CategoryWithLeastProduct();
+        Category CategoryWithMostProduct();        
+        Product LeastProduct();
+        Product MostExpensiveProduct();              
         List<Product> GetAuthors();
     }
 }

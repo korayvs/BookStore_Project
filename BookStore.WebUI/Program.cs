@@ -1,6 +1,7 @@
 using BookStore.WebUI.Services;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.CodeAnalysis.Host;
+using Microsoft.Extensions.Options;
 using System.Globalization;
 using System.Reflection;
 
@@ -20,10 +21,10 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
     var supportedCultures = new List<CultureInfo>
 {
-    new CultureInfo("en"),
-    new CultureInfo("tr")
+    new CultureInfo("en-US"),
+    new CultureInfo("tr-TR")
 };
-    options.DefaultRequestCulture = new RequestCulture("tr");
+    options.DefaultRequestCulture = new RequestCulture("tr-TR");
 
     options.SupportedCultures = supportedCultures;
     options.SupportedUICultures = supportedCultures;
@@ -55,6 +56,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+app.UseRequestLocalization(app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
 
 app.UseRouting();
 

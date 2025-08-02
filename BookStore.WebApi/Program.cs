@@ -28,6 +28,9 @@ builder.Services.AddScoped<IQuoteService, QuoteManager>();
 builder.Services.AddScoped<IUserMailDal, EfUserMailDal>();
 builder.Services.AddScoped<IUserMailService, UserMailManager>();
 
+builder.Services.AddScoped<IDashboardDal, EfDashboardDal>();
+builder.Services.AddScoped<IDashboardService, DashboardManager>();
+
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 builder.Services.AddControllers().AddJsonOptions(options =>

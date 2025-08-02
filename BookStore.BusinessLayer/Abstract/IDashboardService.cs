@@ -9,20 +9,18 @@ namespace BookStore.BusinessLayer.Abstract
 {
     public interface IDashboardService
     {
-
-
-        int TGetCategoryCount();
-        int TGetProductCount();
-        int TGetQuoteCount();
-        int TGetEmailCount();
-        Product TGetLastProduct();
-        Category TGetLastCategory();
-        Quote TGetLastQuote();
-        Product TGetLeastStockProduct();
-        Category TGetCategoryWithMostProduct();
-        Category TGetCategoryWithLeastProduct();
-        Product TGetMostExpensiveProduct();
-        decimal TGetAvarageProductPrice();
+        int TEmailCount();
+        int TCategoryCount();
+        int TProductCount();
+        int TQuoteCount();
+        decimal TAverageProductPrice();
+        Category TLastCategory();
+        Product TLastProduct();
+        Quote TLastQuote();
+        Category TCategoryWithLeastProduct();
+        Category TCategoryWithMostProduct();
+        Product TLeastProduct();
+        Product TMostExpensiveProduct();
         List<Product> TGetAuthors();
     }
 }

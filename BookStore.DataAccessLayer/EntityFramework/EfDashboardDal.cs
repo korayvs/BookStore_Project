@@ -18,7 +18,49 @@ namespace BookStore.DataAccessLayer.EntityFramework
             _context = context;
         }
 
+        public int EmailCount()
+        {
+            return _context.UserMails.Count();
+        }
 
+        public int CategoryCount()
+        {
+            return _context.Categories.Count();
+        }
+
+        public int ProductCount()
+        {
+            return _context.Products.Count();
+        }
+
+        public int QuoteCount()
+        {
+            return _context.Quotes.Count();
+        }
+
+        public decimal AverageProductPrice()
+        {
+            var value = _context.Products.Average(x => x.ProductPrice);
+            return decimal.Round(value, 2);
+        }
+
+        public Category LastCategory()
+        {
+            var value = _context.Categories.OrderByDescending(x => x.CategoryId).FirstOrDefault();
+            return value;
+        }
+
+        public Product LastProduct()
+        {
+            var value = _context.Products.OrderByDescending(x => x.ProductId).FirstOrDefault();
+            return value;
+        }
+
+        public Quote LastQuote()
+        {
+            var value = _context.Quotes.OrderByDescending(x => x.QuoteId).FirstOrDefault();
+            return value;
+        }
 
         public List<Product> GetAuthors()
         {
@@ -26,63 +68,29 @@ namespace BookStore.DataAccessLayer.EntityFramework
             return values;
         }
 
-        public decimal GetAvarageProductPrice()
+        public Category CategoryWithLeastProduct()
         {
-            var value = _context.Products.Average(x => x.ProductPrice);
-            return decimal.Round(value, 2);
-        }
-
-        public int GetCategoryCount()
-        {
-            return _context.Categories.Count();
-        }
-
-        public Category GetCategoryWithLeastProduct()
-        {
-            var category = _context.Categories.OrderBy(x => x.Products.Count).Select(category => new Category
+            var values = _context.Categories.OrderBy(x => x.Products.Count).Select(category => new Category
             {
                 CategoryId = category.CategoryId,
                 CategoryName = category.CategoryName,
             }).FirstOrDefault();
 
-            return category;
+            return values;
         }
 
-        public Category GetCategoryWithMostProduct()
+        public Category CategoryWithMostProduct()
         {
-            var category = _context.Categories.OrderByDescending(x => x.Products.Count).Select(category => new Category
+            var values = _context.Categories.OrderByDescending(x => x.Products.Count).Select(category => new Category
             {
                 CategoryId = category.CategoryId,
                 CategoryName = category.CategoryName,
             }).FirstOrDefault();
 
-            return category;
+            return values;
         }
 
-        public int GetEmailCount()
-        {
-            return _context.UserMails.Count();
-        }
-
-        public Category GetLastCategory()
-        {
-            var value = _context.Categories.OrderByDescending(x => x.CategoryId).FirstOrDefault();
-            return value;
-        }
-
-        public Product GetLastProduct()
-        {
-            var value = _context.Products.OrderByDescending(x => x.ProductId).FirstOrDefault();
-            return value;
-        }
-
-        public Quote GetLastQuote()
-        {
-            var value = _context.Quotes.OrderByDescending(x => x.QuoteId).FirstOrDefault();
-            return value;
-        }
-
-        public Product GetLeastStockProduct()
+        public Product LeastProduct()
         {
             var value = _context.Products.OrderBy(x => x.ProductStock).Select(p => new Product
             {
@@ -98,7 +106,7 @@ namespace BookStore.DataAccessLayer.EntityFramework
             return value;
         }
 
-        public Product GetMostExpensiveProduct()
+        public Product MostExpensiveProduct()
         {
             var value = _context.Products
                                 .OrderByDescending(x => x.ProductPrice)
@@ -115,17 +123,6 @@ namespace BookStore.DataAccessLayer.EntityFramework
                                 })
                                 .FirstOrDefault();
             return value;
-        }
-
-
-        public int GetProductCount()
-        {
-            return _context.Products.Count();
-        }
-
-        public int GetQuoteCount()
-        {
-            return _context.Quotes.Count();
         }
     }
 }

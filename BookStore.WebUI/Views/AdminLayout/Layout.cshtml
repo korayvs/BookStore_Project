@@ -45,7 +45,7 @@
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">dashboard</i>
                         </div>
-                        <span class="nav-link-text ms-1">@* @_localization.Getkey("İstatistikler").Value *@</span>
+                        <span class="nav-link-text ms-1">@_localization.GetKey("İstatistikler").Value</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -53,7 +53,7 @@
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">table_view</i>
                         </div>
-                        <span class="nav-link-text ms-1">@* @_localization.Getkey("Kitaplar").Value *@</span>
+                        <span class="nav-link-text ms-1">@_localization.GetKey("Kitaplar").Value</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -61,7 +61,7 @@
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">receipt_long</i>
                         </div>
-                        <span class="nav-link-text ms-1">@* @_localization.Getkey("Kategoriler").Value *@</span>
+                        <span class="nav-link-text ms-1">@_localization.GetKey("Kategoriler").Value</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -69,7 +69,7 @@
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">view_in_ar</i>
                         </div>
-                        <span class="nav-link-text ms-1">@* @_localization.Getkey("Alıntılar").Value *@</span>
+                        <span class="nav-link-text ms-1">@_localization.GetKey("Alıntılar").Value</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -77,7 +77,7 @@
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
                         </div>
-                        <span class="nav-link-text ms-1">@* @_localization.Getkey("Abonelikler").Value *@</span>
+                        <span class="nav-link-text ms-1">@_localization.GetKey("Abonelikler").Value</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -85,7 +85,7 @@
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">notifications</i>
                         </div>
-                        <span class="nav-link-text ms-1">@* @_localization.Getkey("Genel Bilgiler").Value *@</span>
+                        <span class="nav-link-text ms-1">@_localization.GetKey("Genel Bilgiler").Value</span>
                     </a>
                 </li>
             </ul>
@@ -127,12 +127,12 @@
                     </button>
                     <ul class="dropdown-menu">
                         <li>
-                            <a asp-controller="Dashboard" asp-action="ChangeLanguage" asp-route-culture="en-US" class="dropdown-item">
+                            <a asp-controller="Dashboard" asp-action="ChangeLanguage" asp-route-culture="en-US" asp-route-returnUrl="@Context.Request.Path" class="dropdown-item">
                                 <i class="flag-icon flag-icon-gb"></i> English
                             </a>
                         </li>
                         <li>
-                            <a asp-controller="Dashboard" asp-action="ChangeLanguage" asp-route-culture="tr-TR" class="dropdown-item">
+                            <a asp-controller="Dashboard" asp-action="ChangeLanguage" asp-route-culture="tr-TR" asp-route-returnUrl="@Context.Request.Path" class="dropdown-item">
                                 <i class="flag-icon flag-icon-tr"></i> Türkçe
                             </a>
                         </li>

@@ -118,10 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Books" xml:space="preserve">
-    <value>Statistics</value>
+    <value>Books</value>
   </data>
   <data name="Categories" xml:space="preserve">
     <value>Categories</value>
+  </data>
+  <data name="GeneralInfo" xml:space="preserve">
+    <value>GeneralInfo</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Language</value>
@@ -130,6 +133,9 @@
     <value>Quotes</value>
   </data>
   <data name="Statistics" xml:space="preserve">
-    <value>Books</value>
+    <value>Statistics</value>
+  </data>
+  <data name="Subscribes" xml:space="preserve">
+    <value>Subscribes</value>
   </data>
 </root>

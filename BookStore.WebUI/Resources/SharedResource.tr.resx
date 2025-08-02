@@ -118,18 +118,24 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Books" xml:space="preserve">
-    <value>İstatistikler</value>
+    <value>Kitaplar</value>
   </data>
   <data name="Categories" xml:space="preserve">
     <value>Kategoriler</value>
   </data>
+  <data name="GeneralInfo" xml:space="preserve">
+    <value>Genel Bilgiler</value>
+  </data>
   <data name="Language" xml:space="preserve">
-    <value>Dil Seçeneği</value>
+    <value>Dil Seçeniği</value>
   </data>
   <data name="Quotes" xml:space="preserve">
     <value>Alıntılar</value>
   </data>
   <data name="Statistics" xml:space="preserve">
-    <value>Kitaplar</value>
+    <value>İstatistikler</value>
+  </data>
+  <data name="Subscribes" xml:space="preserve">
+    <value>Abonelikler</value>
   </data>
 </root>

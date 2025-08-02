@@ -123,6 +123,9 @@
   <data name="Categories" xml:space="preserve">
     <value>Categories</value>
   </data>
+  <data name="GeneralInfo" xml:space="preserve">
+    <value>GeneralInfo</value>
+  </data>
   <data name="Language" xml:space="preserve">
     <value>Language</value>
   </data>
@@ -131,5 +134,8 @@
   </data>
   <data name="Statistics" xml:space="preserve">
     <value>Statistics</value>
+  </data>
+  <data name="Subscribes" xml:space="preserve">
+    <value>Subscribes</value>
   </data>
 </root>
