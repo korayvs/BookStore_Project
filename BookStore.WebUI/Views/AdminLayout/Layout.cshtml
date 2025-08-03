@@ -3,6 +3,8 @@
     Layout = null;
 }
 
+@* <p>Aktif Dil: @System.Globalization.CultureInfo.CurrentUICulture.Name</p> *@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,43 +51,43 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="/Product/ProductList">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">table_view</i>
-                        </div>
-                        <span class="nav-link-text ms-1">@_localization.GetKey("Kitaplar").Value</span>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link text-white " href="/Category/CategoryList">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">receipt_long</i>
+                            <i class="material-icons opacity-10">category</i>
                         </div>
                         <span class="nav-link-text ms-1">@_localization.GetKey("Kategoriler").Value</span>
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link text-white " href="/Product/ProductList">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">library_books</i>
+                        </div>
+                        <span class="nav-link-text ms-1">@_localization.GetKey("Kitaplar").Value</span>
+                    </a>
+                </li>                
+                <li class="nav-item">
                     <a class="nav-link text-white " href="/Quote/QuoteList">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">view_in_ar</i>
+                            <i class="material-icons opacity-10">format_quote</i>
                         </div>
                         <span class="nav-link-text ms-1">@_localization.GetKey("Alıntılar").Value</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="/UserEmail/EmailList">
+                    <a class="nav-link text-white " href="/Subscribe/UserMailList">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
+                            <i class="material-icons opacity-10">subscriptions</i>
                         </div>
                         <span class="nav-link-text ms-1">@_localization.GetKey("Abonelikler").Value</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="/GeneralInfo/GeneralInfoList">
+                    <a class="nav-link text-white " href="/Contact/ContactList">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">notifications</i>
+                            <i class="material-icons opacity-10">contact_phone</i>
                         </div>
-                        <span class="nav-link-text ms-1">@_localization.GetKey("Genel Bilgiler").Value</span>
+                        <span class="nav-link-text ms-1">@_localization.GetKey("İletişim Bilgileri").Value</span>
                     </a>
                 </li>
             </ul>
@@ -123,17 +125,17 @@
 
                 <div class="btn-group">
                     <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        DİL SEÇENEĞİ
+                        @_localization.GetKey("Dil Seçeneği").Value
                     </button>
                     <ul class="dropdown-menu">
                         <li>
-                            <a asp-controller="Dashboard" asp-action="ChangeLanguage" asp-route-culture="en-US" asp-route-returnUrl="@Context.Request.Path" class="dropdown-item">
-                                <i class="flag-icon flag-icon-gb"></i> English
+                            <a asp-controller="Dashboard" asp-action="ChangeLanguage" asp-route-culture="en" asp-route-returnUrl="@Context.Request.Path" class="dropdown-item">
+                                <i class="flag-icon flag-icon-gb"></i> @_localization.GetKey("İngilizce").Value
                             </a>
                         </li>
                         <li>
-                            <a asp-controller="Dashboard" asp-action="ChangeLanguage" asp-route-culture="tr-TR" asp-route-returnUrl="@Context.Request.Path" class="dropdown-item">
-                                <i class="flag-icon flag-icon-tr"></i> Türkçe
+                            <a asp-controller="Dashboard" asp-action="ChangeLanguage" asp-route-culture="tr" asp-route-returnUrl="@Context.Request.Path" class="dropdown-item">
+                                <i class="flag-icon flag-icon-tr"></i> @_localization.GetKey("Türkçe").Value
                             </a>
                         </li>
                     </ul>

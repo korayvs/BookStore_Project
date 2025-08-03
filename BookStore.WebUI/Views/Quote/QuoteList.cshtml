@@ -1,6 +1,6 @@
 ﻿@model List<ResultQuoteDto>
 @{
-    ViewData["Title"] = "QuoteList";
+    ViewData["Title"] = "Alıntılar";
     Layout = "~/Views/AdminLayout/Layout.cshtml";
     int count = 0;
 }
@@ -8,13 +8,13 @@
 <div class="container">
     <br /><br />
 
-    <table class="table table-bordered">
+    <table class="table table-bordered table-striped">
 
         <tr>
-            <th>#</th>
+            <th style="width:1%">#</th>
             <th>Alıntı</th>
             <th>Yazar</th>
-            <th>İşlemler</th>
+            <th style="width:5%">İşlemler</th>
         </tr>
 
         @foreach (var item in Model)
@@ -25,13 +25,13 @@
                 <td>@item.Sentence</td>
                 <td>@item.Author</td>
                 <td>
-                    <a href="/Quote/DeleteQuote/@item.QuoteId" class="btn btn-danger">Sil</a>
-                    <a href="/Quote/UpdateQuote/@item.QuoteId" class="btn btn-info">Güncelle</a>
+                    <a href="/Quote/DeleteQuote/@item.QuoteId" class="btn btn-danger">🗑️</a>
+                    <a href="/Quote/UpdateQuote/@item.QuoteId" class="btn btn-info">✏️</a>
                 </td>
             </tr>
         }
 
     </table>
-    <a href="/Quote/CreateQuote" class="btn btn-primary">Yeni Alıntı</a>
+    <a href="/Quote/CreateQuote" class="btn btn-primary">Yenİ Alıntı Ekle</a>
 
 </div>

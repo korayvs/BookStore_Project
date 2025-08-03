@@ -1,6 +1,6 @@
-﻿@model UserMail
+﻿@model UpdateUserMailDto
 @{
-    ViewData["Title"] = "CreateUserMail";
+    ViewData["Title"] = "E-posta Güncelle";
     Layout = "~/Views/AdminLayout/Layout.cshtml";
 }
 
@@ -8,10 +8,11 @@
 
     <div class="container">
         <br /><br />
-        <label>E Posta Adresi</label>
+        <input type="hidden" asp-for="UserMailId" />
+        <label>E-posta Adresi</label>
         <input type="text" asp-for="UserEmail" class="form-control" />
         <br />
-        <button class="btn btn-success">Ekle</button>
+        <button class="btn btn-info">Güncelle</button>
     </div>
 
 </form>

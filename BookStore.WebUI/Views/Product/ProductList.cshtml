@@ -10,15 +10,14 @@
 <div class="container">
     <br /><br />
 
-    <table class="table table-bordered">
+    <table class="table table-bordered table-striped">
 
         <tr>
-            <th>#</th>
+            <th style="width:1%">#</th>
             <th>Ürün Adı</th>
             <th>Ürün Stok</th>
-            <th>Ürün Fiyat</th>
-            <th>Sil</th>
-            <th>Güncelle</th>
+            <th>Ürün Fiyatı</th>
+            <th style="width:5%">İşlemler</th>
         </tr>
 
         @foreach (var item in Model)
@@ -27,13 +26,15 @@
                 <td>@item.ProductId</td>
                 <td>@item.ProductName</td>
                 <td>@item.ProductStock</td>
-                <td>@item.ProductPrice</td>
-                <td><a href="/Product/DeleteProduct/@item.ProductId" class="btn btn-danger">Sil</a></td>
-                <td><a href="/Product/UpdateProduct/@item.ProductId" class="btn btn-info">Güncelle</a></td>
+                <td>@item.ProductPrice ₺</td>
+                <td>
+                    <a href="/Product/DeleteProduct/@item.ProductId" class="btn btn-danger">🗑️</a>
+                    <a href="/Product/UpdateProduct/@item.ProductId" class="btn btn-info">✏️</a>
+                </td>
             </tr>
         }
 
     </table>
-    <a href="/Product/CreateProduct" class="btn btn-primary">Yeni Ürün Girişi</a>
+    <a href="/Product/CreateProduct" class="btn btn-primary">Yenİ Ürün Ekle</a>
 
 </div>

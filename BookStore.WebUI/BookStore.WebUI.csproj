@@ -443,10 +443,4 @@
     <Folder Include="wwwroot\material-dashboard-2\.git\refs\tags\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Update="Resources\SharedResource.resx">
-      <Generator></Generator>
-    </EmbeddedResource>
-  </ItemGroup>
-
 </Project>

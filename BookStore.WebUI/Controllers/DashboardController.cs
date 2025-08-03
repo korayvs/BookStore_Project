@@ -29,17 +29,15 @@ namespace BookStore.WebUI.Controllers
 
         public async Task<IActionResult> Index()
         {
-            #region EnglishLanguage
+            ViewBag.İstatistikler = _localization.GetKey("İstatistikler").Value;
             ViewBag.Abonelikler = _localization.GetKey("Abonelikler").Value;
             ViewBag.Alıntılar = _localization.GetKey("Alıntılar").Value;
-            ViewBag.GenelBilgiler = _localization.GetKey("Genel Bilgiler").Value;
-            ViewBag.İstatistikler = _localization.GetKey("İstatistikler").Value;
+            ViewBag.GenelBilgiler = _localization.GetKey("Genel Bilgiler").Value;            
             ViewBag.Kategoriler = _localization.GetKey("Kategoriler").Value;
             ViewBag.Kitaplar = _localization.GetKey("Kitaplar").Value;
             var currentCulture = Thread.CurrentThread.CurrentCulture.Name;
-            #endregion
 
-            #region Statics
+            #region Widgets
 
             var client = _httpClientFactory.CreateClient();
 

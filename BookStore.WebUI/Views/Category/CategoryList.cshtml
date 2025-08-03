@@ -1,7 +1,6 @@
 ﻿@model List<ResultCategoryDto>
 @{
     ViewData["Title"] = "Kategoriler";
-    ViewData["Title2"] = "Kategori Listesi";
     Layout = "~/Views/AdminLayout/Layout.cshtml";
     int count = 0;
 }
@@ -11,12 +10,12 @@
 <div class="container">
     <br /><br />
 
-    <table class="table table-bordered">
+    <table class="table table-bordered table-striped">
 
         <tr>
-            <th>#</th>
+            <th style="width:1%">#</th>
             <th>Kategori Adı</th>
-            <th>İşlemler</th>
+            <th style="width:5%">İşlemler</th>
         </tr>
 
         @foreach (var item in Model)
@@ -26,13 +25,13 @@
                 <td>@count</td>
                 <td>@item.CategoryName</td>
                 <td>
-                    <a href="/Category/DeleteCategory/@item.CategoryId" class="btn btn-danger">Sil</a>
-                    <a href="/Category/UpdateCategory/@item.CategoryId" class="btn btn-info">Güncelle</a>
+                    <a href="/Category/DeleteCategory/@item.CategoryId" class="btn btn-danger">🗑️</a>
+                    <a href="/Category/UpdateCategory/@item.CategoryId" class="btn btn-info">✏️</a>
                 </td>
             </tr>
         }
 
     </table>
-    <a href="/Category/CreateCategory" class="btn btn-primary">Yeni Kategori Girişi</a>
+    <a href="/Category/CreateCategory" class="btn btn-primary">Yenİ Kategorİ Ekle</a>
 
 </div>

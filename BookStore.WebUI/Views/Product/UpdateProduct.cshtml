@@ -1,5 +1,6 @@
 ﻿@model UpdateProductDto
 @{
+    ViewData["Title"] = "Kitap Bilgisi Güncelle";
     Layout = "~/Views/AdminLayout/Layout.cshtml";
 }
 
@@ -31,7 +32,7 @@
         <label>Fiyatı</label>
         <input type="text" asp-for="ProductPrice" class="form-control" />
         <br />
-        <button class="btn btn-success">Güncelle</button>
+        <button class="btn btn-info">Güncelle</button>
     </div>
 
 </form>

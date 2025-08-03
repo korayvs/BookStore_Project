@@ -1,6 +1,6 @@
 ﻿@model UpdateContactDto
 @{
-    ViewData["Title"] = "UpdateContact";
+    ViewData["Title"] = "İletişim Bilgisi Güncelle";
     Layout = "~/Views/AdminLayout/Layout.cshtml";
 }
 
@@ -12,7 +12,7 @@
         <label>Hakkımızda</label>
         <input type="text" asp-for="AboutUs" class="form-control" />
         <br />
-        <label>E posta</label>
+        <label>E-posta</label>
         <input type="text" asp-for="Email" class="form-control" />
         <br />
         <label>Adres</label>
@@ -24,7 +24,7 @@
         <label>Sosyal Medya</label>
         <input type="text" asp-for="SocialMedia" class="form-control" />
         <br />
-        <button class="btn btn-success">Güncelle</button>
+        <button class="btn btn-info">Güncelle</button>
     </div>
 
 </form>

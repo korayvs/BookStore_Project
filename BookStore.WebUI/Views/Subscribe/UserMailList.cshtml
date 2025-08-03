@@ -1,6 +1,6 @@
-﻿@model List<UserMail>
+﻿@model List<ResultUserMailDto>
 @{
-    ViewData["Title"] = "UserMailList";
+    ViewData["Title"] = "Aboneler";
     Layout = "~/Views/AdminLayout/Layout.cshtml";
     int count = 0;
 }
@@ -8,7 +8,7 @@
 <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.0/dist/sweetalert2.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.0/dist/sweetalert2.min.js"></script>
 
-<div class="container mt-4">
+<div class="container">
     <br /><br />
 
     <table class="table table-bordered table-striped">
@@ -27,19 +27,19 @@
                 <td>@count</td>
                 <td>@item.UserEmail</td>
                 <td>
-                    <form method="post" action="/UserMail/SendMail/@item.UserMailId">
+                    <form method="post" action="/Subscribe/SendMail/@item.UserMailId">
                         <button type="submit" class="btn btn-dark">📩 Maİl Gönder</button>
                     </form>
                 </td>
                 <td>
-                    <a href="/UserMail/DeleteUserMail/@item.UserMailId" class="btn btn-danger">🗑️</a>
-                    <a href="/UserMail/UpdateUserMail/@item.UserMailId" class="btn btn-info">✏️</a>
+                    <a href="/Subscribe/DeleteSubscribe/@item.UserMailId" class="btn btn-danger">🗑️</a>
+                    <a href="/Subscribe/UpdateSubscribe/@item.UserMailId" class="btn btn-info">✏️</a>
                 </td>
             </tr>
         }
 
     </table>
-    <a href="/UserMail/CreateUserMail" class="btn btn-primary">Yenİ Maİl Kaydet</a>
+    <a href="/Subscribe/CreateSubscribe" class="btn btn-primary">Yenİ Maİl Ekle</a>
 
 </div>
 

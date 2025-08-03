@@ -117,25 +117,85 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Books" xml:space="preserve">
-    <value>Books</value>
+  <data name="Abonelikler" xml:space="preserve">
+    <value>Abonelikler</value>
   </data>
-  <data name="Categories" xml:space="preserve">
-    <value>Categories</value>
+  <data name="Alıntılar" xml:space="preserve">
+    <value>Alıntılar</value>
   </data>
-  <data name="GeneralInfo" xml:space="preserve">
-    <value>GeneralInfo</value>
+  <data name="Dil Seçeneği" xml:space="preserve">
+    <value>Dil Seçeneği</value>
   </data>
-  <data name="Language" xml:space="preserve">
-    <value>Language</value>
+  <data name="İletişim Bilgileri" xml:space="preserve">
+    <value>İletişim Bilgileri</value>
   </data>
-  <data name="Quotes" xml:space="preserve">
-    <value>Quotes</value>
+  <data name="Kategoriler" xml:space="preserve">
+    <value>Kategoriler</value>
   </data>
-  <data name="Statistics" xml:space="preserve">
-    <value>Statistics</value>
+  <data name="Kitaplar" xml:space="preserve">
+    <value>Kitaplar</value>
   </data>
-  <data name="Subscribes" xml:space="preserve">
-    <value>Subscribes</value>
+  <data name="Türkçe" xml:space="preserve">
+    <value>Türkçe</value>
+  </data>
+  <data name="İngilizce" xml:space="preserve">
+    <value>İngilizce</value>
+  </data>
+  <data name="İstatistikler" xml:space="preserve">
+    <value>İstatistikler</value>
+  </data>
+  <data name="Yazarlar" xml:space="preserve">
+    <value>Yazarlar</value>
+  </data>
+  <data name="Tüm hakları saklıdır." xml:space="preserve">
+    <value>Tüm hakları saklıdır.</value>
+  </data>
+  <data name="Kİtap Adı" xml:space="preserve">
+    <value>Kİtap Adı</value>
+  </data>
+  <data name="Yazar" xml:space="preserve">
+    <value>Yazar</value>
+  </data>
+  <data name="Fİyat" xml:space="preserve">
+    <value>Fİyat</value>
+  </data>
+  <data name="Stok Sayısı" xml:space="preserve">
+    <value>Stok Sayısı</value>
+  </data>
+  <data name="Abone Olan Kullanıcı Sayısı" xml:space="preserve">
+    <value>Abone Olan Kullanıcı Sayısı</value>
+  </data>
+  <data name="En Pahalı Kitap" xml:space="preserve">
+    <value>En Pahalı Kitap</value>
+  </data>
+  <data name="En Az Stoku Olan Kitap" xml:space="preserve">
+    <value>En Az Stoku Olan Kitap</value>
+  </data>
+  <data name="En Çok Kitap İçeren Kategori" xml:space="preserve">
+    <value>En Çok Kitap İçeren Kategori</value>
+  </data>
+  <data name="En Az Kitap İçeren Kategori" xml:space="preserve">
+    <value>En Az Kitap İçeren Kategori</value>
+  </data>
+  <data name="Son Eklenen Alıntı" xml:space="preserve">
+    <value>Son Eklenen Alıntı</value>
+  </data>
+  <data name="Son Eklenen Kitap" xml:space="preserve">
+    <value>Son Eklenen Kitap</value>
+  </data>
+  <data name="Son Eklenen Kategori" xml:space="preserve">
+    <value>Son Eklenen Kategori</value>
+  </data>
+  <data name="Kitapların Ortalama Fiyatı" xml:space="preserve">
+    <value>Kitapların Ortalama Fiyatı</value>
+  </data>
+  <data name="Toplam Alıntı Sayısı" xml:space="preserve">
+    <value>Toplam Alıntı Sayısı</value>
+  </data>
+  <data name="Toplam Kitap Sayısı" xml:space="preserve">
+    <value>Toplam Kitap Sayısı</value>
+  </data>
+  <data name="Kategori Sayısı" xml:space="preserve">
+    <value>Kategori Sayısı</value>
   </data>
 </root>

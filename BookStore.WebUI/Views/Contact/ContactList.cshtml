@@ -1,6 +1,6 @@
 ﻿@model List<ResultContactDto>
 @{
-    ViewData["Title"] = "ContactList";
+    ViewData["Title"] = "İletişim Bilgileri";
     Layout = "~/Views/AdminLayout/Layout.cshtml";
     int count = 0;
 }
@@ -8,15 +8,16 @@
 <div class="container">
     <br /><br />
 
-    <table class="table table-striped">
-
-        <tr>
-            <th>#</th>
-            <th>E posta</th>
-            <th>Adres</th>
-            <th>Telefon</th>
-            <th>İşlemler</th>
-        </tr>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th style="width:1%">#</th>
+                <th>E-posta</th>
+                <th>Adres</th>
+                <th>Telefon</th>
+                <th style="width:5%">İşlemler</th>
+            </tr>
+        </thead>
 
         @foreach (var item in Model)
         {
@@ -27,13 +28,13 @@
                 <td>@item.ContactAddress</td>
                 <td>@item.PhoneNumber</td>
                 <td>
-                    <a href="/Contact/DeleteContact/@item.ContactId" class="btn btn-danger">Sil</a>
-                    <a href="/Contact/UpdateContact/@item.ContactId" class="btn btn-info">Güncelle</a>
+                    <a href="/Contact/DeleteContact/@item.ContactId" class="btn btn-danger">🗑️</a>
+                    <a href="/Contact/UpdateContact/@item.ContactId" class="btn btn-info">✏️</a>
                 </td>
             </tr>
         }
 
     </table>
-    <a href="/Contact/CreateContact" class="btn btn-primary">Yeni İletişim Girişi</a>
+    <a href="/Contact/CreateContact" class="btn btn-primary">Yenİ İletİşİm Gİrİşİ</a>
 
 </div>
