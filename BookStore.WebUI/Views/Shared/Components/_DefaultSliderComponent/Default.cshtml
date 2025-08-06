@@ -1,0 +1,61 @@
+﻿@model List<ResultProductDto>
+@*
+    _DefaultSliderComponent
+*@
+
+<section id="billboard">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <button class="prev slick-arrow">
+                    <i class="icon icon-arrow-left"></i>
+                </button>
+
+                <div class="main-slider pattern-overlay">
+
+                    @foreach (var item in Model)
+                    {
+                        int maxLength = 300;
+                        string description = item.Description;
+
+                        if (description.Length > maxLength)
+                        {
+                            int lastIndex = description.LastIndexOf(" ", maxLength);
+                            if (lastIndex > 0)
+                            {
+                                description = description.Substring(0, lastIndex) + "...";
+                            }
+                            else
+                            {
+                                description = description.Substring(0, maxLength) + "...";
+                            }
+                        }
+
+                        <div class="slider-item">
+                            <div class="banner-content">
+                                <h2 class="banner-title">@item.ProductName</h2>
+                                <p>@description</p>
+                                <div class="btn-wrap">
+                                    <a href="#" class="btn btn-outline-accent btn-accent-arrow">
+                                        Devamını Oku<i class="icon icon-ns-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div><!--banner-content-->
+                            <img src="@item.ImageUrl" alt="banner" class="banner-image" style="width:350px; height:500px">
+                        </div>
+                        <!--slider-item-->
+                    }
+
+                </div><!--slider-->
+
+                <button class="next slick-arrow">
+                    <i class="icon icon-arrow-right"></i>
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+</section>

@@ -1,0 +1,84 @@
+﻿@model Contact
+@*
+    _DefaultFooterComponent
+*@
+
+<br />
+<footer id="footer">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-4">
+
+                <div class="footer-item">
+                    <div class="company-brand">
+                        <img src="/booksaw-1.0.0/images/main-logo.png" alt="logo" class="footer-logo">
+                        <p>
+                            @Model.AboutUs
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-3">
+
+                <div class="footer-menu">
+                    <h5>Hakkımızda</h5>
+                    <ul class="menu-list">
+                        <li class="menu-item">
+                            <a href="#">E-posta</a>
+                            <p>@Model.Email</p>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#">Adres</a>
+                            <p>@Model.ContactAddress</p>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#">Telefon</a>
+                            <p>@Model.PhoneNumber</p>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="col-md-3">
+
+                <div class="footer-menu">
+                    <h5>Sosyal Medyalarımız</h5>
+                    <ul class="menu-list">
+                        <li class="menu-item">
+                            <a href="@Model.SocialMedia">Instagram</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="@Model.SocialMedia">Twitter</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="@Model.SocialMedia">LinkedIn</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+
+                <div class="footer-menu">
+                    <h5>Destek</h5>
+                    <ul class="menu-list">
+                        <li class="menu-item">
+                            <a href="#">Destek Merkezi</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#">Öneri/Şikayet</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#">Bizimle İletişime Geçin</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <!-- / row -->
+    </div>
+</footer>

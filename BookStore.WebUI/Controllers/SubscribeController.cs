@@ -31,6 +31,16 @@ namespace BookStore.WebUI.Controllers
         }
 
         [HttpPost]
+        public async Task<IActionResult> AddNewMail([FromBody] CreateUserMailDto email)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(email);
+            StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PostAsync("https://localhost:7227/api/UserMails", content);
+            return Json(email);
+        }
+
+        [HttpPost]
         public async Task<IActionResult> SendMail(int id)
         {
 

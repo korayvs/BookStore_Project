@@ -1,0 +1,57 @@
+﻿
+@*
+    _AdminSidebarComponent
+*@
+
+<div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link text-white" href="/Dashboard/Index">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                    <i class="material-icons opacity-10">dashboard</i>
+                </div>
+                <span class="nav-link-text ms-1">@_localization.GetKey("İstatistikler").Value</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white " href="/Category/CategoryList">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                    <i class="material-icons opacity-10">category</i>
+                </div>
+                <span class="nav-link-text ms-1">@_localization.GetKey("Kategoriler").Value</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white " href="/Product/ProductList">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                    <i class="material-icons opacity-10">library_books</i>
+                </div>
+                <span class="nav-link-text ms-1">@_localization.GetKey("Kitaplar").Value</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white " href="/Quote/QuoteList">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                    <i class="material-icons opacity-10">format_quote</i>
+                </div>
+                <span class="nav-link-text ms-1">@_localization.GetKey("Alıntılar").Value</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white " href="/Subscribe/UserMailList">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                    <i class="material-icons opacity-10">subscriptions</i>
+                </div>
+                <span class="nav-link-text ms-1">@_localization.GetKey("Abonelikler").Value</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white " href="/Contact/ContactList">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                    <i class="material-icons opacity-10">contact_phone</i>
+                </div>
+                <span class="nav-link-text ms-1">@_localization.GetKey("İletişim Bilgileri").Value</span>
+            </a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,53 @@
+﻿@using System.Globalization
+
+@*
+    _AdminBreadCrumbComponent
+*@
+
+@{
+    var currentCulture = CultureInfo.CurrentUICulture.Name;
+    var isEnglish = currentCulture.StartsWith("en");
+    var currentLanguageText = isEnglish ? @_localization.GetKey("İngilizce").Value : @_localization.GetKey("Türkçe").Value;
+    var currentFlag = isEnglish ? "flag-icon-gb" : "flag-icon-tr";
+    var otherCulture = isEnglish ? "tr" : "en";
+    var otherLanguageText = isEnglish ? @_localization.GetKey("Türkçe").Value : @_localization.GetKey("İngilizce").Value;
+    var otherFlag = isEnglish ? "flag-icon-tr" : "flag-icon-gb";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/css/flag-icons.min.css" integrity="sha512-kHi1bTknhqMC5bBovJmqJBTU7Mf6TFtGECem6Q55nvHpG+uJvMdIGGv8lNTSng7EpL2B1g3ZFFYoZL1Fz8EQ6w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<nav aria-label="breadcrumb">
+    <br />
+    <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+        <!-- Home Icon -->
+        <li class="breadcrumb-item text-lg">
+            <a class="opacity-5 text-dark" href="/Dashboard/Index">
+                <i class="fas fa-home"></i>
+            </a>
+        </li>
+        <li class="breadcrumb-item text-lg text-dark active" aria-current="page">
+            @if (ViewData["Title2"] == null)
+            {
+                @ViewData["Title"]
+            }
+            else
+            {
+                @Html.Raw(ViewData["Title"] + " / " + ViewData["Title2"])
+            }
+        </li>
+    </ol>
+    <br />
+</nav>
+
+<div class="btn-group">
+    <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="flag-icon @currentFlag"></i> @currentLanguageText
+    </button>
+    <ul class="dropdown-menu">
+        <li>
+            <a asp-controller="Dashboard" asp-action="ChangeLanguage" asp-route-culture="@otherCulture" asp-route-returnUrl="@Context.Request.Path" class="dropdown-item">
+                <i class="flag-icon @otherFlag"></i> @otherLanguageText
+            </a>
+        </li>
+    </ul>
+</div>
