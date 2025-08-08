@@ -1,4 +1,5 @@
 ﻿using BookStore.EntityLayer.Concrete;
+using BookStore.WebUI.Dtos.ProductDtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace BookStore.BusinessLayer.Abstract
         Category TLastCategory();
         Product TLastProduct();
         Quote TLastQuote();
+        Product TLastAuthor();
         Category TCategoryWithLeastProduct();
         Category TCategoryWithMostProduct();
         Product TLeastProduct();

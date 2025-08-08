@@ -198,4 +198,10 @@
   <data name="Kategori Sayısı" xml:space="preserve">
     <value>Kategori Sayısı</value>
   </data>
+  <data name="Son Eklenen Yazar" xml:space="preserve">
+    <value>Son Eklenen Yazar</value>
+  </data>
+  <data name="Ana Sayfa" xml:space="preserve">
+    <value>Ana Sayfa</value>
+  </data>
 </root>

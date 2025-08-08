@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BookStore.BusinessLayer.Abstract;
 using BookStore.EntityLayer.Concrete;
+using BookStore.WebApi.Dtos.CategoryDtos;
 using BookStore.WebApi.Dtos.ProductDtos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -12,13 +13,15 @@ namespace BookStore.WebApi.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly IProductService _productService;
+        private readonly ICategoryService _categoryService;
         private readonly IMapper _mapper;
 
-        public ProductsController(IProductService productService, IMapper mapper)
+        public ProductsController(IProductService productService, IMapper mapper, ICategoryService categoryService)
         {
             _productService = productService;
             _mapper = mapper;
-        }
+            _categoryService = categoryService;
+        }        
 
         [HttpGet]
         public IActionResult ProductList()
@@ -49,6 +52,14 @@ namespace BookStore.WebApi.Controllers
         {
             _productService.TDelete(id);
             return Ok("Silme işlemi başarılı");
+        }
+
+        [HttpGet("GetAllCategories")]
+        public IActionResult GetAllCategories()
+        {
+            var values = _categoryService.TGetAll();
+            var dtos = _mapper.Map<List<ResultCategoryDto>>(values);
+            return Ok(dtos);
         }
 
         [HttpGet("GetProduct")]

@@ -1,6 +1,6 @@
 ﻿@model List<ResultUserMailDto>
 @{
-    ViewData["Title"] = "Aboneler";
+    ViewData["Title"] = @_localization.GetKey("Abonelikler").Value;
     Layout = "~/Views/AdminLayout/Layout.cshtml";
     int count = 0;
 }
@@ -32,7 +32,7 @@
                     </form>
                 </td>
                 <td>
-                    <a href="/Subscribe/DeleteSubscribe/@item.UserMailId" class="btn btn-danger">🗑️</a>
+                    <button class="btn btn-danger" onclick="delSubscribe(@item.UserMailId)">🗑️</button>
                     <a href="/Subscribe/UpdateSubscribe/@item.UserMailId" class="btn btn-info">✏️</a>
                 </td>
             </tr>
@@ -64,5 +64,28 @@
             text: '@Html.Raw(TempData["FailMessage"])',
             confirmButtonText: 'Tamam',
         });
+    </script>
+}
+
+@section Scripts
+{
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function delSubscribe(userMailId) {
+            Swal.fire({
+                title: 'Emin misiniz?',
+                text: "Bu işlem geri alınamaz!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Evet, sil!',
+                cancelButtonText: 'Vazgeç'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '/Subscribe/DeleteSubscribe/' + userMailId;
+                }
+            });
+        }
     </script>
 }

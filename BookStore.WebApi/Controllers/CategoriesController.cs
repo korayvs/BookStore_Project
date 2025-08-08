@@ -57,5 +57,13 @@ namespace BookStore.WebApi.Controllers
             var dto = _mapper.Map<GetByIdCategoryDto>(value);
             return Ok(dto);
         }
+
+        [HttpGet("GetCategoriesWithProducts")]
+        public IActionResult GetCategoriesWithProducts()
+        {
+            var categories = _categoryService.TGetCategoriesWithProducts();
+            var dto = _mapper.Map<List<ResultCategoryDto>>(categories);
+            return Ok(dto);
+        }
     }
 }

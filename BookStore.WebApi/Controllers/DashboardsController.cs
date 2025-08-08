@@ -71,12 +71,19 @@ namespace BookStore.WebApi.Controllers
             return Ok(value);
         }
 
+        [HttpGet("LastAuthor")]
+        public IActionResult LastAuthor()
+        {
+            var value = _dashboardService.TLastAuthor();
+            return Ok(value);
+        }
+
         [HttpGet("GetAuthors")]
         public IActionResult GetAuthors()
         {
             var values = _dashboardService.TGetAuthors();
             return Ok(values);
-        }        
+        }
 
         [HttpGet("CategoryWithLeastProduct")]
         public IActionResult CategoryWithLeastProduct()
@@ -104,6 +111,6 @@ namespace BookStore.WebApi.Controllers
         {
             var value = _dashboardService.TMostExpensiveProduct();
             return Ok(value);
-        }  
+        }
     }
 }

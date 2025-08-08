@@ -1,4 +1,5 @@
 ﻿using BookStore.EntityLayer.Concrete;
+using BookStore.WebUI.Dtos.ProductDtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,8 +18,9 @@ namespace BookStore.DataAccessLayer.Abstract
         Category LastCategory();
         Product LastProduct();        
         Quote LastQuote();
+        Product LastAuthor();
         Category CategoryWithLeastProduct();
-        Category CategoryWithMostProduct();        
+        Category CategoryWithMostProduct();
         Product LeastProduct();
         Product MostExpensiveProduct();              
         List<Product> GetAuthors();

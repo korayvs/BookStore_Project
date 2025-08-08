@@ -118,12 +118,12 @@
             <div class="card">
                 <div class="card-header p-3 pt-2">
                     <div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
-                        <i class="material-icons opacity-10">format_quote</i>
+                        <i class="material-icons opacity-10">person_pin</i>
                     </div>
                     <div class="text-end pt-1">
-                        <p class="text-sm mb-0 text-capitalize">@_localization.GetKey("Son Eklenen Alıntı").Value</p>
+                        <p class="text-sm mb-0 text-capitalize">@_localization.GetKey("Son Eklenen Yazar").Value</p>
                         <br />
-                        <h4 class="mb-0">`` @ViewBag.LastQuote.Sentence ``</h4>
+                        <h4 class="mb-0">@ViewBag.LastAuthor?.AuthorName</h4>
                     </div>
                 </div>
                 <hr class="dark horizontal my-0">
@@ -142,7 +142,7 @@
                     <div class="text-end pt-1">
                         <p class="text-sm mb-0 text-capitalize">@_localization.GetKey("En Az Kitap İçeren Kategori").Value</p>
                         <br />
-                        <h4 class="mb-0">-@* @ViewBag.LeastProduct.CategoryName *@</h4>
+                        <h4 class="mb-0">@ViewBag.CategoryWithLeastProduct.CategoryName</h4>
                     </div>
                 </div>
                 <hr class="dark horizontal my-0">
@@ -157,7 +157,7 @@
                     <div class="text-end pt-1">
                         <p class="text-sm mb-0 text-capitalize">@_localization.GetKey("En Çok Kitap İçeren Kategori").Value</p>
                         <br />
-                        <h4 class="mb-0">-@* @ViewBag.MostExpensiveProduct.CategoryName *@</h4>
+                        <h4 class="mb-0">@ViewBag.CategoryWithMostProduct.CategoryName</h4>
                     </div>
                 </div>
                 <hr class="dark horizontal my-0">
@@ -182,7 +182,7 @@
             <div class="card">
                 <div class="card-header p-3 pt-2">
                     <div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
-                        <i class="material-icons opacity-10">format_quote</i>
+                        <i class="material-icons opacity-10">diamond</i>
                     </div>
                     <div class="text-end pt-1">
                         <p class="text-sm mb-0 text-capitalize">@_localization.GetKey("En Pahalı Kitap").Value</p>
@@ -195,7 +195,28 @@
         </div>
     </div>
     <br />
+
+    <div class="row">
+        <div class="d-flex justify-content-center">
+            <div class="card">
+                <div class="card-header p-3 pt-2">
+                    <div class="icon icon-lg icon-shape bg-gradient-warning shadow-warning text-center border-radius-xl mt-n4 position-absolute">
+                        <i class="material-icons opacity-10">format_quote</i>
+                    </div>
+                    <div class="text-end pt-1">
+                        <p class="text-sm mb-0 text-capitalize">@_localization.GetKey("Son Eklenen Alıntı").Value</p>
+                        <br />
+                        <h4 class="mb-0">@ViewBag.LastQuote.Sentence</h4>
+                    </div>
+                </div>
+                <hr class="dark horizontal my-0">
+            </div>
+        </div>
+    </div>
     <br />
+    <br />
+
+
 
     @* <div class="row mt-4">
         <div class="col-lg-4 col-md-6 mt-4 mb-4">
@@ -356,7 +377,7 @@
                         {
                             <div class="timeline-block mb-3">
                                 <span class="timeline-step">
-                                    <i class="material-icons text-success text-gradient">notifications</i>
+                                    <i class="material-icons text-success text-gradient">person_pin</i>
                                 </span>
                                 <div class="timeline-content">
                                     <h6 class="text-dark text-sm font-weight-bold mb-0">@item.AuthorName</h6>

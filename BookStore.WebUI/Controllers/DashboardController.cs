@@ -47,8 +47,8 @@ namespace BookStore.WebUI.Controllers
                 var count = await values.Content.ReadAsStringAsync();
                 var emailCount = Convert.ToInt32(count);
                 ViewBag.EmailCount = emailCount;
-            }
 
+            }
             var values2 = await client.GetAsync("https://localhost:7227/api/Dashboards/CategoryCount");
             if (values2.IsSuccessStatusCode)
             {
@@ -60,7 +60,7 @@ namespace BookStore.WebUI.Controllers
             var values3 = await client.GetAsync("https://localhost:7227/api/Dashboards/ProductCount");
             if (values3.IsSuccessStatusCode)
             {
-                var count = await values2.Content.ReadAsStringAsync();
+                var count = await values3.Content.ReadAsStringAsync();
                 var productCount = Convert.ToInt32(count);
                 ViewBag.ProductCount = productCount;
             }
@@ -68,7 +68,7 @@ namespace BookStore.WebUI.Controllers
             var values4 = await client.GetAsync("https://localhost:7227/api/Dashboards/QuoteCount");
             if (values4.IsSuccessStatusCode)
             {
-                var count = await values3.Content.ReadAsStringAsync();
+                var count = await values4.Content.ReadAsStringAsync();
                 var quoteCount = Convert.ToInt32(count);
                 ViewBag.QuoteCount = quoteCount;
             }
@@ -107,26 +107,50 @@ namespace BookStore.WebUI.Controllers
                 ViewBag.LastQuote = quote;
             }
 
-            var values9 = await client.GetAsync("https://localhost:7227/api/Dashboards/LeastProduct");
+            var values9 = await client.GetAsync("https://localhost:7227/api/Dashboards/LastAuthor");
             if (values9.IsSuccessStatusCode)
             {
                 var value = await values9.Content.ReadAsStringAsync();
-                var product = JsonConvert.DeserializeObject<Product>(value);
-                ViewBag.LeastProduct = product;
+                var author = JsonConvert.DeserializeObject<Product>(value);
+                ViewBag.LastAuthor = author;
             }
 
-            var values10 = await client.GetAsync("https://localhost:7227/api/Dashboards/MostExpensiveProduct");
+            var values10 = await client.GetAsync("https://localhost:7227/api/Dashboards/LeastProduct");
             if (values10.IsSuccessStatusCode)
             {
                 var value = await values10.Content.ReadAsStringAsync();
                 var product = JsonConvert.DeserializeObject<Product>(value);
+                ViewBag.LeastProduct = product;
+            }
+
+            var values11 = await client.GetAsync("https://localhost:7227/api/Dashboards/MostExpensiveProduct");
+            if (values11.IsSuccessStatusCode)
+            {
+                var value = await values11.Content.ReadAsStringAsync();
+                var product = JsonConvert.DeserializeObject<Product>(value);
                 ViewBag.MostExpensiveProduct = product;
             }
 
-            var values11 = await client.GetAsync("https://localhost:7227/api/Dashboards/GetAuthors");
-            if (values11.IsSuccessStatusCode)
+            var values12 = await client.GetAsync("https://localhost:7227/api/Dashboards/CategoryWithLeastProduct");
+            if (values12.IsSuccessStatusCode)
             {
-                var getAuthors = await values11.Content.ReadAsStringAsync();
+                var value = await values12.Content.ReadAsStringAsync();
+                var category = JsonConvert.DeserializeObject<Category>(value);
+                ViewBag.CategoryWithLeastProduct = category;
+            }
+
+            var values13 = await client.GetAsync("https://localhost:7227/api/Dashboards/CategoryWithMostProduct");
+            if (values13.IsSuccessStatusCode)
+            {
+                var value = await values13.Content.ReadAsStringAsync();
+                var category = JsonConvert.DeserializeObject<Category>(value);
+                ViewBag.CategoryWithMostProduct = category;
+            }
+
+            var values14 = await client.GetAsync("https://localhost:7227/api/Dashboards/GetAuthors");
+            if (values14.IsSuccessStatusCode)
+            {
+                var getAuthors = await values14.Content.ReadAsStringAsync();
                 var products = JsonConvert.DeserializeObject<List<Product>>(getAuthors);
                 var last5Product = products.TakeLast(5);
                 var productsForAuhtor = products.TakeLast(8);

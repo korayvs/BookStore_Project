@@ -1,6 +1,8 @@
 ﻿using BookStore.DataAccessLayer.Abstract;
 using BookStore.DataAccessLayer.Context;
 using BookStore.EntityLayer.Concrete;
+using BookStore.WebUI.Dtos.ProductDtos;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,6 +61,12 @@ namespace BookStore.DataAccessLayer.EntityFramework
         public Quote LastQuote()
         {
             var value = _context.Quotes.OrderByDescending(x => x.QuoteId).FirstOrDefault();
+            return value;
+        }        
+
+        public Product LastAuthor()
+        {
+            var value = _context.Products.OrderByDescending(x => x.ProductId).FirstOrDefault();
             return value;
         }
 

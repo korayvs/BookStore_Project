@@ -17,15 +17,16 @@ namespace BookStore.WebUI.Controllers
         public async Task<IActionResult> CategoryList()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:7227/api/Categories");
+            var responseMessage = await client.GetAsync("https://localhost:7227/api/Categories/GetCategoriesWithProducts");
             if (responseMessage.IsSuccessStatusCode)
             {
-                var jsonData= await responseMessage.Content.ReadAsStringAsync();
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<List<ResultCategoryDto>>(jsonData);
                 return View(values);
             }
-            return View();
+            return View(new List<ResultCategoryDto>());
         }
+
 
         [HttpGet]
         public IActionResult CreateCategory()

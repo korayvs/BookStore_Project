@@ -1,8 +1,8 @@
 ﻿@model List<ResultProductDto>
 @{
-    ViewData["Title"] = "Kitaplar";
-    ViewData["Title2"] = "Kitap Listesi";
+    ViewData["Title"] = @_localization.GetKey("Kitaplar").Value;
     Layout = "~/Views/AdminLayout/Layout.cshtml";
+    int count = 0;
 }
 
 <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -15,6 +15,7 @@
         <tr>
             <th style="width:1%">#</th>
             <th>Ürün Adı</th>
+            <th>Yazarı</th>
             <th>Ürün Stok</th>
             <th>Ürün Fiyatı</th>
             <th style="width:5%">İşlemler</th>
@@ -22,13 +23,15 @@
 
         @foreach (var item in Model)
         {
+            count++;
             <tr>
-                <td>@item.ProductId</td>
+                <td>@count</td>
                 <td>@item.ProductName</td>
+                <td>@item.AuthorName</td>
                 <td>@item.ProductStock</td>
                 <td>@item.ProductPrice ₺</td>
                 <td>
-                    <a href="/Product/DeleteProduct/@item.ProductId" class="btn btn-danger">🗑️</a>
+                    <button class="btn btn-danger" onclick="delProduct(@item.ProductId)">🗑️</button>
                     <a href="/Product/UpdateProduct/@item.ProductId" class="btn btn-info">✏️</a>
                 </td>
             </tr>
@@ -38,3 +41,26 @@
     <a href="/Product/CreateProduct" class="btn btn-primary">Yenİ Ürün Ekle</a>
 
 </div>
+
+@section Scripts 
+{
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function delProduct(productId) {
+            Swal.fire({
+                title: 'Emin misiniz?',
+                text: "Bu işlem geri alınamaz!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Evet, sil!',
+                cancelButtonText: 'Vazgeç'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '/Product/DeleteProduct/' + productId;
+                }
+            });
+        }
+    </script>
+}

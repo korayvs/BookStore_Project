@@ -1,6 +1,7 @@
 ﻿using BookStore.BusinessLayer.Abstract;
 using BookStore.DataAccessLayer.Abstract;
 using BookStore.EntityLayer.Concrete;
+using BookStore.WebUI.Dtos.ProductDtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,6 +47,11 @@ namespace BookStore.BusinessLayer.Concrete
         public List<Product> TGetAuthors()
         {
             return _dashboardDal.GetAuthors();
+        }
+
+        public Product TLastAuthor()
+        {
+            return _dashboardDal.LastAuthor();
         }
 
         public Category TLastCategory()

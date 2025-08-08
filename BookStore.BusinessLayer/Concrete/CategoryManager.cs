@@ -1,11 +1,6 @@
 ﻿using BookStore.BusinessLayer.Abstract;
 using BookStore.DataAccessLayer.Abstract;
 using BookStore.EntityLayer.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BookStore.BusinessLayer.Concrete
 {
@@ -18,13 +13,17 @@ namespace BookStore.BusinessLayer.Concrete
             _categoryDal = categoryDal;
         }
 
+        public List<Category> TGetCategoriesWithProducts()
+        {
+            return _categoryDal.GetCategoriesWithProducts();
+        }
+
         public void TAdd(Category entity)
         {
             if (entity.CategoryName.Length >= 3 && entity.CategoryName.Length <= 30)
             {
                 _categoryDal.Add(entity);
             }
-            //hata mesajı
         }
 
         public void TDelete(int id)
