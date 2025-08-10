@@ -93,11 +93,11 @@ namespace BookStore.WebUI.Controllers
 
                 await smtpClient.SendMailAsync(mailMessage);
 
-                TempData["SuccessMessage"] = "Mail başarıyla gönderildi.";
+                TempData["SuccessMessage"] = "Abonelik maili gönderildi.";
             }
             catch (Exception)
             {
-                TempData["FailMessage"] = "Mail gönderilirken hata oluştu.";
+                TempData["FailMessage"] = "Mail gönderilirken bir hata oluştu.";
             }
 
             return RedirectToAction("UserMailList");
